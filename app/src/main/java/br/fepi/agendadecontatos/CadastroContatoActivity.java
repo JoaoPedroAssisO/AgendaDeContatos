@@ -17,6 +17,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
     private EditText etTelefone;
     private EditText etEndereco;
     private Button btnSalvarContato;
+    private Button btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,16 @@ public class CadastroContatoActivity extends AppCompatActivity {
         etTelefone = findViewById(R.id.etTelefone);
         etEndereco = findViewById(R.id.etEndereco);
         btnSalvarContato = findViewById(R.id.btnSalvarContato);
+        btnVoltar = findViewById(R.id.btnVoltar); // Adicionando o botão Voltar
+
+        // Configurando o botão Voltar
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Simplesmente finalizar a activity e voltar para a tela anterior
+                finish();
+            }
+        });
 
         btnSalvarContato.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +64,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
                                     Intent resultIntent = new Intent();
                                     resultIntent.putExtra("contato", (Serializable) contato);
                                     setResult(RESULT_OK, resultIntent);
-                                    finish();
+                                    finish(); // Finaliza a activity e volta para a tela anterior
                                 }
                             });
                         }
